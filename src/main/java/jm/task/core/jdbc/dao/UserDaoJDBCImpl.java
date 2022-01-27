@@ -1,20 +1,21 @@
 package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.Util;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("JDBCDao")
 public class UserDaoJDBCImpl implements UserDao {
 
-    private final Connection connection;
     String tableName = "users";
 
-    public UserDaoJDBCImpl() {
-        connection = Util.getMySQLConnection();
-    }
+    @Autowired
+    Connection connection;
+
+
 
     public void createUsersTable() {
         try {

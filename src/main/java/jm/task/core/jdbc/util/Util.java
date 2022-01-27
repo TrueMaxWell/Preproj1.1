@@ -22,7 +22,8 @@ import java.util.Properties;
 
 public class Util {
 
-    public static java.sql.Connection getMySQLConnection() {
+    @Bean
+    public java.sql.Connection getMySQLConnection() {
         try {
             String URL = "jdbc:mysql://127.0.0.1:3306/test?useSSL=false";
             String NAME = "root";
